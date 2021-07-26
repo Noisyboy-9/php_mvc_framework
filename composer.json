@@ -1,0 +1,18 @@
+{
+  "name": "sinashariati/php_mvc",
+  "description": "A php framework for learning purposes.",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "./"
+    }
+  },
+  "authors": [
+    {
+      "name": "Sina Shariati",
+      "email": "sina.shariati@yahoo.com"
+    }
+  ],
+  "require": {}
+}

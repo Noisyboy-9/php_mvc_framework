@@ -1,13 +1,22 @@
 <?php
 
+namespace App\Core;
 
-use JetBrains\PhpStorm\Pure;
-
+/**
+ * Class Application
+ * @package App\Core
+ */
 class Application
 {
-    private Router $router;
+    /**
+     * @var \App\Core\Router
+     */
+    public Router $router;
 
-    #[Pure] public function __construct()
+    /**
+     * Application constructor.
+     */
+    public function __construct()
     {
         $this->router = new Router();
     }
