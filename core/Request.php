@@ -6,9 +6,7 @@ namespace App\Core;
 
 class Request
 {
-    private string $method;
-
-    public function getPath()
+    public function getPath(): string
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
 
@@ -20,7 +18,7 @@ class Request
         return $path;
     }
 
-    public function getMethod()
+    public function getMethod(): string
     {
 
         return strtoupper($_SERVER['REQUEST_METHOD']);
