@@ -21,3 +21,9 @@ this method will register an GET route in the application, it will add the route
 ## post()
 
 this method will register an POST route in the application, it will add the route to POST key of the array.
+
+## resolve()
+
+this method is the main method responsible for resolving input path. if it finds the path in its registered routes it
+will get the callback and execute it, if it doesn't find the input URL as a registered route, it will throw an
+PageNotFoundException with 404 status code

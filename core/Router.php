@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Exceptions\PageNotFoundException;
 use Closure;
 
 /**
@@ -27,7 +28,7 @@ class Router
      * @param string $path
      * @param \Closure $closure
      */
-    public function get(string $path, Closure $closure)
+    public function get(string $path, Closure $closure): void
     {
         $this->routes['GET'][$path] = $closure;
     }
@@ -38,7 +39,7 @@ class Router
      * @param string $path
      * @param \Closure $closure
      */
-    public function post(string $path, Closure $closure)
+    public function post(string $path, Closure $closure): void
     {
         $this->routes['POST'][$path] = $closure;
     }
@@ -47,8 +48,18 @@ class Router
      * Figure what is the current url and resolve the URL if the route
      * is registered.
      *
+     * @throws \App\Exceptions\PageNotFoundException
      */
-    public function resolve()
+    public function resolve(): void
     {
+        $path = $this->request->getPath();
+        $method = $this->request->getMethod();
+        $callback = $this->routes[$method][$path] ?? false;
+
+        if (!$callback) {
+            throw new PageNotFoundException("Not found Exception.", 404);
+        }
+
+        $callback();
     }
 }
