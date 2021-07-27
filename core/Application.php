@@ -19,16 +19,8 @@ class Application
     private function __construct()
     {
         $this->request = new Request();
-        $this->router = new Router($this->request);
+        $this->router = new Router();
         $this->response = new Response();
-    }
-
-    /**
-     * @throws \App\Exceptions\PageNotFoundException
-     */
-    public function run()
-    {
-        $this->router->resolve();
     }
 
     /**
@@ -43,5 +35,13 @@ class Application
         }
 
         return static::$instance;
+    }
+
+    /**
+     * run the application.
+     */
+    public function run()
+    {
+        $this->router->resolve();
     }
 }
