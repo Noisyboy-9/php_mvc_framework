@@ -7,11 +7,7 @@ include_once '../core/helpers/view.php';
 
 $app = new Application();
 
-$app->router->get('/', function () {
-    echo 'hello world';
-    echo "<br>";
-    echo "this is the best thing I have ever created";
-});
+$app->router->view('/', 'home');
 
 $app->router->view('/contact', "contact");
 

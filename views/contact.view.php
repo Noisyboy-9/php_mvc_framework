@@ -1,5 +1,3 @@
 <?php include_once "partials/header.php"; ?>
-<div class="container">
-    <h1>hello world</h1>
-</div>
+<h1>contact page</h1>
 <?php include_once "partials/footer.php"; ?>
