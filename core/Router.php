@@ -15,10 +15,12 @@ class Router
         'POST' => [],
     ];
     private Request $request;
+    private Response $response;
 
-    public function __construct(Request $request)
+    public function __construct()
     {
-        $this->request = $request;
+        $this->request = Application::getInstance()->request;
+        $this->response = Application::getInstance()->response;
     }
 
     /**
@@ -68,7 +70,7 @@ class Router
         $callback = $this->routes[$method][$path] ?? false;
 
         if (!$callback) {
-            Application::getInstance()->response->showNotFoundPage();
+            $this->response->showNotFoundPage();
             return;
         }
 
