@@ -22,6 +22,14 @@ this method will register an GET route in the application, it will add the route
 
 this method will register an POST route in the application, it will add the route to POST key of the array.
 
+## view()
+
+sometimes all a method callback is doing is to just render a view.It would be better if we had some shorter syntax for
+it so whenever the client hits the route with a GET method a view will be shown. the view() method is responsible for
+making a shorter and better way for just showing the view, all it does is to get the view name string and then creates a
+callback that renders the view and then calls the get() on the object to get register the route with its callback as a
+GET route.
+
 ## resolve()
 
 this method is the main method responsible for resolving input path. if it finds the path in its registered routes it

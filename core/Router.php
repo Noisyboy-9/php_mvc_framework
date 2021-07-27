@@ -34,12 +34,25 @@ class Router
     }
 
     /**
+     * @param string $path
+     * @param string $viewName
+     */
+    public function view(string $path, string $viewName): void
+    {
+        $callback = function () use ($viewName) {
+            view($viewName);
+        };
+
+        $this->get($path, $callback);
+    }
+
+    /**
      * Add a post route to the list of application POST rouets.
      *
      * @param string $path
      * @param \Closure $closure
      */
-    public function post(string $path, Closure $closure): void
+    private function post(string $path, Closure $closure): void
     {
         $this->routes['POST'][$path] = $closure;
     }
