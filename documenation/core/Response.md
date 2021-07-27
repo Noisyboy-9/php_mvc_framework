@@ -7,3 +7,8 @@ HTTP STATUS CODE and other things.
 
 this will set the status on the http response. it will get an int for the code, and then passes it to http_response_code
 function of php-core.
+
+## showNotFoundPage()
+
+this will first set the http_response_code to 404 using setStatus() on the object and then renders the pageNotFound.
+view.php file.

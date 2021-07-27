@@ -5,7 +5,7 @@ use App\Core\Application;
 include_once __DIR__ . "/../vendor/autoload.php";
 include_once "../core/helpers/helpers.php";
 
-$app = new Application();
+$app = Application::getInstance();
 
 $app->router->view('/', 'home');
 
