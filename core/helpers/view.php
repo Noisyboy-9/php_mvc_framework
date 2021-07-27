@@ -2,5 +2,5 @@
 
 function view(string $viewName): void
 {
-    include_once __DIR__ . "/../../views/$viewName.view.php";
+    include_once path("views/$viewName.view.php");
 }
