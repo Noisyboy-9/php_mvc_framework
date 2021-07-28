@@ -19,8 +19,8 @@ class Application
     private function __construct()
     {
         $this->request = new Request();
-        $this->router = new Router();
         $this->response = new Response();
+        $this->router = new Router($this->request, $this->response);
     }
 
     /**

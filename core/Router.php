@@ -17,10 +17,10 @@ class Router
     private Request $request;
     private Response $response;
 
-    public function __construct()
+    public function __construct(Request $request, Response $response)
     {
-        $this->request = Application::getInstance()->request;
-        $this->response = Application::getInstance()->response;
+        $this->request = $request;
+        $this->response = $response;
     }
 
     /**
@@ -53,7 +53,7 @@ class Router
      * @param string $path
      * @param \Closure $closure
      */
-    private function post(string $path, Closure $closure): void
+    public function post(string $path, Closure $closure): void
     {
         $this->routes['POST'][$path] = $closure;
     }

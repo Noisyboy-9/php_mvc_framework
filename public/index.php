@@ -8,8 +8,6 @@ include_once "../core/helpers/helpers.php";
 $app = Application::getInstance();
 
 $app->router->view('/', 'home');
-
 $app->router->view('/contact', "contact");
-
 
 $app->run();
