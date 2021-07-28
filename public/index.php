@@ -9,7 +9,10 @@ include_once "../core/helpers/helpers.php";
 
 $app = Application::getInstance();
 
+//home page
 $app->router->get('/', [HomeController::class, 'index']);
+
+//contact
 $app->router->get('/contact', [ContactController::class, 'index']);
 $app->router->post('/contact', [ContactController::class, 'store']);
 
