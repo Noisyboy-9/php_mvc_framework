@@ -4,7 +4,7 @@
 namespace App\http\controllers;
 
 
-class HomeController
+class HomeController extends Controller
 {
     public static function index(): void
     {

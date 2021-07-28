@@ -4,7 +4,7 @@
 namespace App\http\controllers;
 
 
-class ContactController
+class ContactController extends Controller
 {
     public static function index(): void
     {
