@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\http\controllers\Controller;
 use Closure;
 
 /**
@@ -27,35 +28,22 @@ class Router
      * Add a get route to the list to the application GET routes.
      *
      * @param string $path
-     * @param \Closure $closure
+     * @param \Closure $handler
      */
-    public function get(string $path, Closure $closure): void
+    public function get(string $path, array $handler): void
     {
-        $this->routes['GET'][$path] = $closure;
-    }
-
-    /**
-     * @param string $path
-     * @param string $viewName
-     */
-    public function view(string $path, string $viewName): void
-    {
-        $callback = function () use ($viewName) {
-            view($viewName);
-        };
-
-        $this->get($path, $callback);
+        $this->routes['GET'][$path] = $handler;
     }
 
     /**
      * Add a post route to the list of application POST routes.
      *
      * @param string $path
-     * @param \Closure $closure
+     * @param \Closure $handler
      */
-    public function post(string $path, Closure $closure): void
+    public function post(string $path, array $handler): void
     {
-        $this->routes['POST'][$path] = $closure;
+        $this->routes['POST'][$path] = $handler;
     }
 
     /**
@@ -67,13 +55,15 @@ class Router
     {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
-        $callback = $this->routes[$method][$path] ?? false;
+        $handler = $this->routes[$method][$path] ?? false;
 
-        if (!$callback) {
+        if (!$handler) {
             $this->response->showNotFoundPage();
             return;
         }
 
-        $callback();
+        [$controller, $method] = $handler;
+
+        (new $controller())->$method();
     }
 }
