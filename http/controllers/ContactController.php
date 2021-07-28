@@ -6,7 +6,7 @@ namespace App\http\controllers;
 
 class ContactController
 {
-    public static function index()
+    public static function index(): void
     {
         view('contact');
     }
