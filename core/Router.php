@@ -64,6 +64,6 @@ class Router
 
         [$controller, $method] = $handler;
 
-        (new $controller())->$method();
+        (new $controller())->$method($this->request);
     }
 }

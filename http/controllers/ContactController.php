@@ -4,6 +4,9 @@
 namespace App\http\controllers;
 
 
+use App\Core\Application;
+use App\Core\Request;
+
 class ContactController extends Controller
 {
     public static function index(): void
@@ -11,8 +14,9 @@ class ContactController extends Controller
         view('contact');
     }
 
-    public static function store()
+    public static function store(Request $request)
     {
-        echo "handle data";
+        $body = $request->getBody();
+        var_dump($body);
     }
 }
