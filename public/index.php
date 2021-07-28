@@ -9,5 +9,8 @@ $app = Application::getInstance();
 
 $app->router->view('/', 'home');
 $app->router->view('/contact', "contact");
+$app->router->post('/contact', function () {
+    echo "handle data submitting";
+});
 
 $app->run();

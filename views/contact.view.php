@@ -1,3 +1,15 @@
 <?php include_once "partials/header.php"; ?>
-<h1>contact page</h1>
+<form>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description"> </textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 <?php include_once "partials/footer.php"; ?>
