@@ -14,7 +14,7 @@ class ContactController extends Controller
 
     public static function store(Request $request)
     {
-        $body = $request->getBody();
+        $body = $request->body();
         var_dump($body);
     }
 }

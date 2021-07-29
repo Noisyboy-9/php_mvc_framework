@@ -17,7 +17,12 @@ $app->router->get('/', [HomeController::class, 'index']);
 //contact
 $app->router->get('/contact', [ContactController::class, 'index']);
 $app->router->post('/contact', [ContactController::class, 'store']);
+
+// register
 $app->router->get('/register', [RegisterController::class, 'index']);
+$app->router->post('/register', [RegisterController::class, 'store']);
+
+//login
 $app->router->get('/login', [LoginController::class, 'index']);
 
 $app->run();

@@ -53,8 +53,8 @@ class Router
      */
     public function resolve(): void
     {
-        $path = $this->request->getPath();
-        $method = $this->request->getMethod();
+        $path = $this->request->path();
+        $method = $this->request->method();
         $handler = $this->routes[$method][$path] ?? false;
 
         if (!$handler) {

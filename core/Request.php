@@ -15,7 +15,7 @@ class Request
      *
      * @return string
      */
-    public function getPath(): string
+    public function path(): string
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
 
@@ -32,7 +32,7 @@ class Request
      *
      * @return string
      */
-    public function getMethod(): string
+    public function method(): string
     {
         return strtoupper($_SERVER['REQUEST_METHOD']);
     }
@@ -42,11 +42,11 @@ class Request
      *
      * @return array
      */
-    public function getBody(): array
+    public function body(): array
     {
         $body = [];
 
-        if ($this->getMethod() === 'GET') {
+        if ($this->method() === 'GET') {
 //            our request is a get method, so have to get the data from $_GET super global.
             foreach ($_GET as $key => $value) {
                 $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -54,7 +54,7 @@ class Request
             return $body;
         }
 
-        if ($this->getMethod() === 'POST') {
+        if ($this->method() === 'POST') {
 //        our request is using post method, so have to use the $_POST super global.
             foreach ($_POST as $key => $value) {
                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
