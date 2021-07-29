@@ -1,7 +1,7 @@
 <?php include_once "partials/header.php" ?>
 <h1 class="h1 mb-4">Register</h1>
 
-<form method="post" action="/contact">
+<form method="post" action="/register">
     <div class="mb-4">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name" required>
@@ -16,6 +16,11 @@
     <div class="mb-4">
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+
+    <div class="mb-4">
+        <label for="password_confirm" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
     </div>
 
     <div class="mb-4">

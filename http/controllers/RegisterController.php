@@ -13,6 +13,6 @@ class RegisterController extends Controller
 
     public function store()
     {
-        return 'handle register';
+        echo 'handle register';
     }
 }
