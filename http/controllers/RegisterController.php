@@ -10,4 +10,9 @@ class RegisterController extends Controller
     {
         view("register");
     }
+
+    public function store()
+    {
+        return 'handle register';
+    }
 }
