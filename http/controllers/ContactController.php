@@ -3,13 +3,15 @@
 
 namespace App\http\controllers;
 
+use App\Core\Application;
 use App\Core\Request;
 
 class ContactController extends Controller
 {
     public static function index(): void
     {
-        view('contact');
+        $isLoggedIn = Application::getInstance()->isLoggedIn();
+        view('contact', compact('isLoggedIn'));
     }
 
     public static function store(Request $request)

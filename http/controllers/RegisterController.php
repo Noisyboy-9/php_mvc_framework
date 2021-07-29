@@ -8,7 +8,8 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        view("register");
+        $isLoggedIn = Application::getInstance()->isLoggedIn();
+        view("register", compact('isLoggedIn'));
     }
 
     public function store()

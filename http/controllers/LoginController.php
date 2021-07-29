@@ -4,10 +4,13 @@
 namespace App\http\controllers;
 
 
+use App\Core\Application;
+
 class LoginController extends Controller
 {
     public function index()
     {
-        view('login');
+        $isLoggedIn = Application::getInstance()->isLoggedIn();
+        view('login', compact('isLoggedIn'));
     }
 }

@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public static function index(): void
     {
-        view('home');
+        $isLoggedIn = Application::getInstance()->isLoggedIn();
+        view('home', compact('isLoggedIn'));
     }
 }

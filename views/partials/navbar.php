@@ -15,14 +15,16 @@
                 </li>
             </ul>
 
-            <ul class="ml-auto navbar-nav ">
-                <li class="nav-item me-3">
-                    <a class="nav-link" href="/register">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-primary text-light" href="/login">Login</a>
-                </li>
-            </ul>
+            <?php if ($isLoggedIn) : ?>
+                <ul class="ml-auto navbar-nav ">
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-light" href="/login">Login</a>
+                    </li>
+                </ul>
+            <?php endif; ?>
         </div>
     </div>
 </nav>

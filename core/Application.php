@@ -12,6 +12,7 @@ class Application
     public Router $router;
     public Request $request;
     public Response $response;
+    private bool $loggedIn = false;
 
     /**
      * Application constructor.
@@ -35,6 +36,24 @@ class Application
         }
 
         return static::$instance;
+    }
+
+    /**
+     * Changes the loggedIn field to true.
+     */
+    public function login(): void
+    {
+        $this->loggedIn = true;
+    }
+
+    /**
+     * checks if the user is logged in or not.
+     *
+     * @return bool
+     */
+    public function isLoggedIn(): bool
+    {
+        return $this->loggedIn;
     }
 
     /**
