@@ -4,6 +4,8 @@
 namespace App\http\controllers;
 
 
+use App\Core\Application;
+
 class HomeController extends Controller
 {
     public static function index(): void

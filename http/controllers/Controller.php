@@ -4,7 +4,7 @@
 namespace App\http\controllers;
 
 
-class Controller
+abstract class Controller
 {
 
 }

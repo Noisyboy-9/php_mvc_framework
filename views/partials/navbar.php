@@ -15,7 +15,7 @@
                 </li>
             </ul>
 
-            <?php if ($isLoggedIn) : ?>
+            <?php if (!$isLoggedIn) : ?>
                 <ul class="ml-auto navbar-nav ">
                     <li class="nav-item me-3">
                         <a class="nav-link" href="/register">Register</a>
