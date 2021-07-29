@@ -46,7 +46,7 @@ class Request
     {
         $body = [];
 
-        if ($this->method() === 'GET') {
+        if ($this->isGet()) {
 //            our request is a get method, so have to get the data from $_GET super global.
             foreach ($_GET as $key => $value) {
                 $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -54,7 +54,7 @@ class Request
             return $body;
         }
 
-        if ($this->method() === 'POST') {
+        if ($this->isPost()) {
 //        our request is using post method, so have to use the $_POST super global.
             foreach ($_POST as $key => $value) {
                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -62,5 +62,25 @@ class Request
         }
 
         return $body;
+    }
+
+    /**
+     * Checks if the request method is post.
+     *
+     * @return bool
+     */
+    public function isPost(): bool
+    {
+        return $this->method() === 'POST';
+    }
+
+    /**
+     * Checks is request method is get.
+     *
+     * @return bool
+     */
+    public function isGet(): bool
+    {
+        return $this->method() === 'GET';
     }
 }
