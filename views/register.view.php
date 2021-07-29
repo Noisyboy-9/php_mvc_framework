@@ -20,7 +20,7 @@
 
     <div class="mb-4">
         <label for="password_confirm" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
+        <input type="password" class="form-control" id="password_confirm" name="password_confirmation" required>
     </div>
 
     <div class="mb-4">

@@ -6,6 +6,7 @@ namespace App\http\controllers;
 
 use App\Core\Application;
 use App\Core\Request;
+use App\http\models\User;
 
 class RegisterController extends Controller
 {
@@ -17,8 +18,13 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        var_dump($request->body());
-        die();
-        echo 'handle register';
+        $user = new User();
+        $user->load($request->body());
+
+        if ($user->isValid() && $user->save()) {
+            die('success');
+        }
+
+        die('failure');
     }
 }

@@ -11,11 +11,6 @@ class User extends Model
     public string $password;
     public string $passwordConfirmation;
 
-    /**
-     * populate the model fields with array data.
-     *
-     * @param array $data
-     */
     public function load(array $data): void
     {
         $this->name = trim($data['name']);
@@ -24,12 +19,6 @@ class User extends Model
         $this->passwordConfirmation = trim($data['password_confirmation']);
     }
 
-    /**
-     * Checks if the current state of the models value is valid or not.
-     * if it isn't valid it will populate the errors array with corresponding key value pair.
-     *
-     * @return bool
-     */
     public function isValid(): bool
     {
         $validationResult = true;
@@ -60,5 +49,10 @@ class User extends Model
         }
 
         return $validationResult;
+    }
+
+    public function save(): bool
+    {
+        echo "saving the data to the database";
     }
 }

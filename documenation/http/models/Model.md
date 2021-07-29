@@ -22,4 +22,9 @@ its fields.
 ## isValid()
 
 In this architecture every model will check if its state for values is valid or not, so every model must have a specific
-logic for validation of the fields state, this logic will be implemented in this function. 
+logic for validation of the fields state, this logic will be implemented in this function.
+
+## save()
+
+Every model in the project need an implementation to save it's current state to a table of the database to enforce every
+model to do so, an abstract save method is added to the model so every child has to override it.
