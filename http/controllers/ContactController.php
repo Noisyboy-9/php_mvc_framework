@@ -3,8 +3,6 @@
 
 namespace App\http\controllers;
 
-
-use App\Core\Application;
 use App\Core\Request;
 
 class ContactController extends Controller
